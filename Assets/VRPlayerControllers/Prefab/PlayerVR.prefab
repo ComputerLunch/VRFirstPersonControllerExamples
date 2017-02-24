@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 114367444318168534}
   - component: {fileID: 114000469536820904}
   - component: {fileID: 114630442121367692}
+  - component: {fileID: 114748786737434736}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -146,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013318821860}
   m_LocalRotation: {x: -0, y: -0.99130774, z: 0, w: -0.13156416}
-  m_LocalPosition: {x: -0, y: 0.9, z: 5.35}
+  m_LocalPosition: {x: -3.890439, y: 1, z: 8.271196}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4964553194298538}
@@ -467,6 +468,24 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114748786737434736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1602001009283574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31957ab02a8654b448736febf48c16e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FadeImage: {fileID: 114709070515633712}
+  m_DefaultSnapshot: {fileID: 0}
+  m_FadedSnapshot: {fileID: 0}
+  m_FadeColor: {r: 0, g: 0, b: 0, a: 1}
+  m_FadeDuration: 2
+  m_FadeInOnSceneLoad: 1
+  m_FadeInOnStart: 1
 --- !u!124 &124976664632476212
 Behaviour:
   m_ObjectHideFlags: 1

@@ -65,6 +65,7 @@ GameObject:
   - component: {fileID: 114270838938760420}
   - component: {fileID: 114968557367203438}
   - component: {fileID: 114259211190802366}
+  - component: {fileID: 114019798184926956}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -278,6 +279,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0741f24172c43369134448da16ccdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114019798184926956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410472097338676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31957ab02a8654b448736febf48c16e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FadeImage: {fileID: 114174870392152372}
+  m_DefaultSnapshot: {fileID: 0}
+  m_FadedSnapshot: {fileID: 0}
+  m_FadeColor: {r: 0, g: 0, b: 0, a: 1}
+  m_FadeDuration: 2
+  m_FadeInOnSceneLoad: 0
+  m_FadeInOnStart: 1
 --- !u!114 &114174870392152372
 MonoBehaviour:
   m_ObjectHideFlags: 1

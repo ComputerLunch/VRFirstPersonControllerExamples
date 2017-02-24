@@ -3,10 +3,21 @@ using System.Collections;
 
 public class MoveToAPoint : MonoBehaviour {
 
-	public float moveSpeed = 3.0f;
-	public Vector3 targetPoint;
+	// This enum represents the way in which the camera will warp
+	public enum MoveStyle
+	{
+		Smooth, Warp, WarpWithFade,
+	}
 
-	public bool warp = false;
+	public float moveSpeed = 3.0f;
+	private Vector3 _targetPoint;
+
+	public MoveStyle moveStyle = MoveStyle.Warp;
+
+	[SerializeField] VRStandardAssets.Utils.VRCameraFade m_CameraFade; 
+	public float m_WarpFadeDuration = 0.2f;
+
+
 
 	CharacterController cc;
 
@@ -14,23 +25,28 @@ public class MoveToAPoint : MonoBehaviour {
 
 		cc = GetComponent<CharacterController>();
 
-		targetPoint = cc.transform.position;
+		_targetPoint = cc.transform.position;
 	}
 
 	void Update () {
 		//Given some means of determining a target point.
-		if(warp){
-			WarpTowardsTarget (targetPoint);
-		}else{
-			MoveTowardsTarget (targetPoint);
+
+		if(moveStyle == MoveStyle.Smooth){
+			MoveTowardsTarget (_targetPoint);
 		}
 	}
 
-	void WarpTowardsTarget(Vector3 target) {
+	public void SetTarget(Vector3 targetPoint){
 
-		cc.transform.position = target;
+		_targetPoint = targetPoint;
+
+		if(moveStyle == MoveStyle.Warp ){
+			WarpTowardsTarget(_targetPoint);
+		}else if(moveStyle == MoveStyle.WarpWithFade ){
+			StartCoroutine("WarpCamera" , _targetPoint );
+		}
 	}
-
+		
 	void MoveTowardsTarget(Vector3 target) {
 		
 		var offset = target - transform.position;
@@ -44,5 +60,18 @@ public class MoveToAPoint : MonoBehaviour {
 			cc.Move(offset * Time.deltaTime);
 			//actually move the character.
 		}
+	}
+
+	void WarpTowardsTarget(Vector3 target) {
+
+		cc.transform.position = target;
+	}
+		
+	private IEnumerator WarpCamera(Vector3 target)
+	{
+		yield return StartCoroutine(m_CameraFade.BeginFadeOut(m_WarpFadeDuration, false));
+			cc.transform.position = target;
+		yield return StartCoroutine(m_CameraFade.BeginFadeIn(m_WarpFadeDuration, false));
+
 	}
 }

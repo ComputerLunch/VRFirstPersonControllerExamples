@@ -35,7 +35,7 @@ public class RayCastHitDetection : MonoBehaviour {
 
 
 				if(moveToAPoint){
-					moveToAPoint.targetPoint = hit.point;
+					moveToAPoint.SetTarget( hit.point );
 				}
 
 			}

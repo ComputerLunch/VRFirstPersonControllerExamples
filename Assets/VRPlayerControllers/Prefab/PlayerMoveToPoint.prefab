@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 114393046545770106}
   - component: {fileID: 114779153855115738}
   - component: {fileID: 114152586683823084}
+  - component: {fileID: 114736285132502770}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -278,8 +279,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  targetPoint: {x: 0, y: 0, z: 0}
-  warp: 0
+  moveStyle: 0
+  m_CameraFade: {fileID: 114736285132502770}
+  m_WarpFadeDuration: 0.2
 --- !u!114 &114393046545770106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,6 +355,24 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 15
+--- !u!114 &114736285132502770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541093071404384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31957ab02a8654b448736febf48c16e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FadeImage: {fileID: 114979769559094846}
+  m_DefaultSnapshot: {fileID: 0}
+  m_FadedSnapshot: {fileID: 0}
+  m_FadeColor: {r: 0, g: 0, b: 0, a: 1}
+  m_FadeDuration: 2
+  m_FadeInOnSceneLoad: 0
+  m_FadeInOnStart: 1
 --- !u!114 &114777613625593978
 MonoBehaviour:
   m_ObjectHideFlags: 1
